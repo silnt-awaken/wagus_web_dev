@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wagus_web/markdowns.dart';
+import 'package:wagus_web/router.dart';
 import 'package:wagus_web/widgets/tokenomics_page.dart';
 import 'constants.dart';
 import 'widgets/countdown_timer.dart';
 import 'widgets/banner_component.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   await GetStorage.init();
+  usePathUrlStrategy();
   runApp(const MainApp());
 }
 
@@ -20,12 +24,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.secondaryColor,
       ),
-      home: const LandingPage(),
+      routerConfig: router,
     );
   }
 }
@@ -206,6 +210,19 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
               const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () async => context.go(privacy),
+                    child: const Text(
+                      'Privacy Policy',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
               Text(
                 '© WAGUS 2025 - All rights reserved',
                 style: GoogleFonts.poppins(
@@ -216,7 +233,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ],
           ),
-        ),
+        )
       ],
     );
   }
