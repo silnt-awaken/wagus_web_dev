@@ -45,19 +45,19 @@ Your text and image generation inputs may be temporarily processed by AI APIs fo
 
 ## 5. Cookies and Tracking
 
-The WAGUS web app may use basic cookies for session handling and analytics. No invasive tracking or cross-site profiling is used.
+The WAGUS App does not use cookies or tracking technologies. We do not track your activity outside of the app.
 
 ---
 
 ## 6. Account Deletion
 
-Users may request to delete their account and all associated data via the app interface or by contacting [privacy@wagus.app](mailto:privacy@wagus.app).
+Users may delete their account within the app and your private keys will be exported to the email the user provided. This is all handled by Privy provider.
 
 ---
 
 ## 7. Your Rights
 
-You may request access to your data, deletion of your data, or correction of any inaccurate information by contacting us at [privacy@wagus.app](mailto:privacy@wagus.app).
+You may request access to your data, deletion of your data, or correction of any inaccurate information by contacting at [mgallego.business@gmail.com](mailto:mgallego.business@gmail.com).
 
 ---
 
