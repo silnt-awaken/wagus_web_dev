@@ -10,7 +10,7 @@ class BannerComponent extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
-      height: 140, 
+      height: 140,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
@@ -46,7 +46,7 @@ class BannerComponent extends StatelessWidget {
                   opacity: 0.1,
                   child: CustomPaint(
                     painter: GeometricPatternPainter(),
-                    size: const Size(300, 140), 
+                    size: const Size(300, 140),
                   ),
                 ),
               ),
@@ -54,7 +54,7 @@ class BannerComponent extends StatelessWidget {
           ),
           // Content
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 30), 
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 30),
             child: Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -79,7 +79,7 @@ class BannerComponent extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Your Career Companion',
+                        "The only Utility Token you'll ever need",
                         style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -87,7 +87,7 @@ class BannerComponent extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'powered by deepseek',
+                        'powered by Privy & OpenAI',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,

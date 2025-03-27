@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 // App colors
 class AppColors {
-  static const Color primaryColor = Color(0xFF9C27B0); 
-  static const Color secondaryColor = Color(0xFF0D0D1F); 
-  static const Color accentColor = Color(0xFF3A3A5A); 
+  static const Color primaryColor = Color.fromARGB(255, 0, 0, 0);
+  static const Color secondaryColor = Color(0xFF0D0D1F);
+  static const Color accentColor = Color(0xFF3A3A5A);
   static const Color textColor = Colors.white;
   static const Color textColorBlack = Colors.black;
   static const Color subtitleColor = Color(0xFFAAAAAA);
@@ -31,7 +31,7 @@ class AppTextStyles {
     color: AppColors.textColor,
   );
 
-static TextStyle buttonTextBlack = GoogleFonts.poppins(
+  static TextStyle buttonTextBlack = GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.textColorBlack,

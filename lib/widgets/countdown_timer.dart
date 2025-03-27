@@ -1,25 +1,26 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 import 'package:get_storage/get_storage.dart';
 
+// Create a convenience constructor for your specific date
 class CountdownTimer extends StatefulWidget {
-  final DateTime targetDate;
+  CountdownTimer({super.key})
+      : targetDate = DateTime(2025, 4, 4, 18, 0); // 6:00 PM on March 28, 2025
 
-  const CountdownTimer({super.key, required this.targetDate});
+  final DateTime targetDate;
 
   @override
   State<CountdownTimer> createState() => _CountdownTimerState();
 }
 
 class _CountdownTimerState extends State<CountdownTimer> {
-  late Timer _timer;
+  Timer? _timer;
   Duration _timeRemaining = Duration.zero;
   final _storage = GetStorage();
   late DateTime _effectiveTargetDate;
-  
+
   static const String _targetDateKey = 'countdown_target_date';
 
   @override
@@ -35,20 +36,22 @@ class _CountdownTimerState extends State<CountdownTimer> {
   void _initializeTargetDate() {
     // Try to get the saved target date from storage
     final savedTimestamp = _storage.read<int>(_targetDateKey);
-    
+
     if (savedTimestamp != null) {
       // If we have a saved date, use it
-      _effectiveTargetDate = DateTime.fromMillisecondsSinceEpoch(savedTimestamp);
+      _effectiveTargetDate =
+          DateTime.fromMillisecondsSinceEpoch(savedTimestamp);
     } else {
       // Otherwise use the provided target date and save it
       _effectiveTargetDate = widget.targetDate;
-      _storage.write(_targetDateKey, _effectiveTargetDate.millisecondsSinceEpoch);
+      _storage.write(
+          _targetDateKey, _effectiveTargetDate.millisecondsSinceEpoch);
     }
   }
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -62,7 +65,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
       setState(() {
         _timeRemaining = Duration.zero;
       });
-      _timer.cancel();
+      _timer?.cancel();
     }
   }
 
@@ -85,7 +88,8 @@ class _CountdownTimerState extends State<CountdownTimer> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildTimeBox(_timeRemaining.inDays.toString().padLeft(2, '0'), 'Days'),
+              _buildTimeBox(
+                  _timeRemaining.inDays.toString().padLeft(2, '0'), 'Days'),
               const SizedBox(width: 10),
               _buildTimeBox(_getHours().padLeft(2, '0'), 'Hours'),
               const SizedBox(width: 10),
