@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,13 +87,23 @@ class BannerComponent extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      Text(
-                        'powered by Privy & OpenAI',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white.withOpacity(0.8),
-                        ),
+                      Row(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.bolt,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'powered by Privy & OpenAI',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white.withOpacity(0.8),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
