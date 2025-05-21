@@ -57,7 +57,7 @@ Users may delete their account within the app and your private keys will be expo
 
 ## 7. Your Rights
 
-You may request access to your data, deletion of your data, or correction of any inaccurate information by contacting at [mgallego.business@gmail.com](mailto:mgallego.business@gmail.com).
+You may request access to your data, deletion of your data, or correction of any inaccurate information by contacting at [info@wagus-app.com](mailto:info@wagus-app.com).
 
 ---
 
@@ -70,7 +70,7 @@ We may update this Privacy Policy occasionally. If we make material changes, use
 ## Contact
 
 For any privacy-related inquiries, please contact us:  
-📧 **Email:** [mgallego.business@gmail.com](mailto:mgallego.business@gmail.com)
+📧 **Email:** [info@wagus-app.com](mailto:info@wagus-app.com)
 
 ---
 

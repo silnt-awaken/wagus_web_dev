@@ -26,9 +26,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.secondaryColor,
-      ),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.secondaryColor),
       routerConfig: router,
     );
   }
@@ -52,48 +50,35 @@ class _LandingPageState extends State<LandingPage> {
           _buildNavBar(context),
           const BannerComponent(),
           Expanded(
-            child: selectedContent != null
-                ? (selectedContent == tokenomics
-                    ? const TokenomicsPage() // Render custom page
-                    : Padding(
-                        padding: const EdgeInsets.all(32.0),
-                        child: Markdown(
-                          data: selectedContent!,
-                          styleSheet:
-                              MarkdownStyleSheet.fromTheme(Theme.of(context))
-                                  .copyWith(
-                            tableBody: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(color: Colors.white, fontSize: 16),
-                            p: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(color: Colors.white, fontSize: 16),
-                            h1: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(color: Colors.white, fontSize: 22),
-                            h2: Theme.of(context)
-                                .textTheme
-                                .bodyLarge
-                                ?.copyWith(color: Colors.white, fontSize: 20),
-                            h3: Theme.of(context)
-                                .textTheme
-                                .headlineSmall
-                                ?.copyWith(color: Colors.white, fontSize: 18),
-                            h4: Theme.of(context)
-                                .textTheme
-                                .headlineMedium
-                                ?.copyWith(color: Colors.white, fontSize: 16),
-                            h5: Theme.of(context)
-                                .textTheme
-                                .headlineLarge
-                                ?.copyWith(color: Colors.white, fontSize: 14),
+            child:
+                selectedContent != null
+                    ? (selectedContent == tokenomics
+                        ? const TokenomicsPage() // Render custom page
+                        : Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: Markdown(
+                            data: selectedContent!,
+                            styleSheet: MarkdownStyleSheet.fromTheme(
+                              Theme.of(context),
+                            ).copyWith(
+                              tableBody: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: Colors.white, fontSize: 16),
+                              p: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: Colors.white, fontSize: 16),
+                              h1: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(color: Colors.white, fontSize: 22),
+                              h2: Theme.of(context).textTheme.bodyLarge
+                                  ?.copyWith(color: Colors.white, fontSize: 20),
+                              h3: Theme.of(context).textTheme.headlineSmall
+                                  ?.copyWith(color: Colors.white, fontSize: 18),
+                              h4: Theme.of(context).textTheme.headlineMedium
+                                  ?.copyWith(color: Colors.white, fontSize: 16),
+                              h5: Theme.of(context).textTheme.headlineLarge
+                                  ?.copyWith(color: Colors.white, fontSize: 14),
+                            ),
                           ),
-                        ),
-                      ))
-                : _buildHeroSection(context),
+                        ))
+                    : _buildHeroSection(context),
           ),
         ],
       ),
@@ -111,17 +96,18 @@ class _LandingPageState extends State<LandingPage> {
             child: Row(
               children: [
                 GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedContent = null;
-                      });
-                    },
-                    child: Text('WAGUS', style: AppTextStyles.heading)),
+                  onTap: () {
+                    setState(() {
+                      selectedContent = null;
+                    });
+                  },
+                  child: Text('WAGUS', style: AppTextStyles.heading),
+                ),
                 const SizedBox(width: 16),
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   child: Image.asset('assets/icons/logo.png'),
-                )
+                ),
               ],
             ),
           ),
@@ -135,10 +121,12 @@ class _LandingPageState extends State<LandingPage> {
               _buildNavItem('Roadmap', roadmap),
               ElevatedButton(
                 style: AppButtonStyles.primaryButtonWhite,
-                onPressed: () async =>
-                    launchUrlString('https://pump.fun/board'),
-                child:
-                    Text('Buy \$WAGUS', style: AppTextStyles.buttonTextBlack),
+                onPressed:
+                    () async => launchUrlString('https://pump.fun/board'),
+                child: Text(
+                  'Buy \$WAGUS',
+                  style: AppTextStyles.buttonTextBlack,
+                ),
               ),
             ],
           ),
@@ -167,24 +155,25 @@ class _LandingPageState extends State<LandingPage> {
         Expanded(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 64),
-            child: isSmallScreen
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildLeftColumn(),
-                      const SizedBox(height: 32),
-                      _buildRightColumn(screenWidth),
-                    ],
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(child: _buildLeftColumn()),
-                      const SizedBox(width: 48),
-                      _buildRightColumn(screenWidth),
-                    ],
-                  ),
+            child:
+                isSmallScreen
+                    ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildLeftColumn(),
+                        const SizedBox(height: 32),
+                        _buildRightColumn(screenWidth),
+                      ],
+                    )
+                    : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(child: _buildLeftColumn()),
+                        const SizedBox(width: 48),
+                        _buildRightColumn(screenWidth),
+                      ],
+                    ),
           ),
         ),
         Container(
@@ -196,16 +185,21 @@ class _LandingPageState extends State<LandingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    icon: const Icon(FontAwesomeIcons.xTwitter,
-                        color: Colors.white),
-                    onPressed: () async =>
-                        launchUrlString('https://x.com/WAGUS_APP'),
+                    icon: const Icon(
+                      FontAwesomeIcons.xTwitter,
+                      color: Colors.white,
+                    ),
+                    onPressed:
+                        () async => launchUrlString('https://x.com/WAGUS_APP'),
                   ),
                   IconButton(
-                    icon: const Icon(FontAwesomeIcons.discord,
-                        color: Colors.white),
-                    onPressed: () async =>
-                        launchUrlString('https://discord.gg/ypPzNgJNXC'),
+                    icon: const Icon(
+                      FontAwesomeIcons.discord,
+                      color: Colors.white,
+                    ),
+                    onPressed:
+                        () async =>
+                            launchUrlString('https://discord.gg/ypPzNgJNXC'),
                   ),
                 ],
               ),
@@ -233,7 +227,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -242,8 +236,10 @@ class _LandingPageState extends State<LandingPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('WAGUS - The Future of Utility Tokens',
-            style: AppTextStyles.heading),
+        Text(
+          'WAGUS - The Future of Utility Tokens',
+          style: AppTextStyles.heading,
+        ),
         const SizedBox(height: 16),
         Text(
           'WAGUS aims to empower individuals and organizations by providing innovative tools and resources to drive success in the digital economy. Our mission is to bridge the gap between technology and accessibility, fostering growth and collaboration through cutting-edge solutions.',
@@ -255,8 +251,10 @@ class _LandingPageState extends State<LandingPage> {
           children: [
             ElevatedButton(
               style: AppButtonStyles.primaryButton,
-              onPressed: () async => launchUrlString(
-                  'https://apps.apple.com/us/app/youtube/id544007664'),
+              onPressed:
+                  () async => launchUrlString(
+                    'https://apps.apple.com/us/app/youtube/id544007664',
+                  ),
               child: Text('Try WAGUS APP', style: AppTextStyles.buttonText),
             ),
           ],
@@ -290,10 +288,6 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ),
           ),
-        ),
-        SizedBox(
-          width: timerWidth,
-          child: CountdownTimer(),
         ),
       ],
     );
