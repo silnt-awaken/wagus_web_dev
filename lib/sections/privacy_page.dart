@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:wagus_web/privacy.dart';
+import 'package:wagus_web/strings/privacy.dart';
 
 class PrivacyPage extends StatelessWidget {
   const PrivacyPage({super.key});
@@ -13,18 +13,15 @@ class PrivacyPage extends StatelessWidget {
         child: Markdown(
           data: wagusPrivacyPolicy,
           styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context)).copyWith(
-            p: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.white),
-            h1: Theme.of(context)
-                .textTheme
-                .headlineMedium
-                ?.copyWith(color: Colors.white),
-            h2: Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(color: Colors.white),
+            p: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(color: Colors.white),
+            h1: Theme.of(
+              context,
+            ).textTheme.headlineMedium?.copyWith(color: Colors.white),
+            h2: Theme.of(
+              context,
+            ).textTheme.headlineSmall?.copyWith(color: Colors.white),
           ),
         ),
       ),

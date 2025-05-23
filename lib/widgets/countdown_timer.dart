@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../constants.dart';
+import '../themes/app_colors.dart';
 import 'package:get_storage/get_storage.dart';
 
 // Create a convenience constructor for your specific date
 class CountdownTimer extends StatefulWidget {
   CountdownTimer({super.key})
-      : targetDate = DateTime(2025, 4, 4, 18, 0); // 6:00 PM on March 28, 2025
+    : targetDate = DateTime(2025, 4, 4, 18, 0); // 6:00 PM on March 28, 2025
 
   final DateTime targetDate;
 
@@ -39,13 +39,16 @@ class _CountdownTimerState extends State<CountdownTimer> {
 
     if (savedTimestamp != null) {
       // If we have a saved date, use it
-      _effectiveTargetDate =
-          DateTime.fromMillisecondsSinceEpoch(savedTimestamp);
+      _effectiveTargetDate = DateTime.fromMillisecondsSinceEpoch(
+        savedTimestamp,
+      );
     } else {
       // Otherwise use the provided target date and save it
       _effectiveTargetDate = widget.targetDate;
       _storage.write(
-          _targetDateKey, _effectiveTargetDate.millisecondsSinceEpoch);
+        _targetDateKey,
+        _effectiveTargetDate.millisecondsSinceEpoch,
+      );
     }
   }
 
@@ -74,22 +77,22 @@ class _CountdownTimerState extends State<CountdownTimer> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: AppColors.accentColor.withOpacity(0.3),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            'Token Launch',
-            style: AppTextStyles.subheading,
-          ),
+          Text('Token Launch', style: AppTextStyles.subheading),
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildTimeBox(
-                  _timeRemaining.inDays.toString().padLeft(2, '0'), 'Days'),
+                _timeRemaining.inDays.toString().padLeft(2, '0'),
+                'Days',
+              ),
               const SizedBox(width: 10),
               _buildTimeBox(_getHours().padLeft(2, '0'), 'Hours'),
               const SizedBox(width: 10),

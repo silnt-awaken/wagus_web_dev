@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../constants.dart';
+import '../themes/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BannerComponent extends StatelessWidget {
@@ -18,12 +18,14 @@ class BannerComponent extends StatelessWidget {
           end: Alignment.centerRight,
           colors: [
             AppColors.primaryColor,
+            // ignore: deprecated_member_use
             AppColors.primaryColor.withOpacity(0.8),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: AppColors.primaryColor.withOpacity(0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
@@ -72,6 +74,7 @@ class BannerComponent extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 1,
+                    // ignore: deprecated_member_use
                     color: Colors.white.withOpacity(0.5),
                   ),
                   const SizedBox(width: 16),
@@ -100,6 +103,7 @@ class BannerComponent extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
+                              // ignore: deprecated_member_use
                               color: Colors.white.withOpacity(0.8),
                             ),
                           ),
@@ -120,10 +124,11 @@ class BannerComponent extends StatelessWidget {
 class GeometricPatternPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.0;
+    final paint =
+        Paint()
+          ..color = Colors.white
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0;
 
     final random = size.width / 10;
     for (int i = 0; i < 20; i++) {
